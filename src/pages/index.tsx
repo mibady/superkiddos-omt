@@ -13,9 +13,29 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-screen">
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+          <div className="relative w-40 h-10">
+            <Image
+              src="/logo.svg"
+              alt="SuperKiddos Logo"
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
+          <nav className="hidden md:flex space-x-8">
+            <a href="#benefits" className="text-gray-600 hover:text-primary-600">Benefits</a>
+            <a href="#testimonials" className="text-gray-600 hover:text-primary-600">Success Stories</a>
+            <a href="#faq" className="text-gray-600 hover:text-primary-600">FAQ</a>
+            <button className="button-primary">Schedule Consultation</button>
+          </nav>
+        </div>
+      </header>
+
+      <main className="pt-20">
         {/* Benefits Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white" id="benefits">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -39,22 +59,22 @@ export default function Home() {
                 {
                   title: 'Certified Therapist',
                   description: 'Expert care from certified OMT specialists',
-                  icon: '👩‍⚕️'
+                  icon: '/icons/heart.svg'
                 },
                 {
                   title: 'Personalized Plans',
                   description: 'Customized treatment for your child's needs',
-                  icon: '📋'
+                  icon: '/icons/smile.svg'
                 },
                 {
                   title: 'Non-Invasive Care',
                   description: 'Gentle techniques for lasting results',
-                  icon: '🌟'
+                  icon: '/icons/moon.svg'
                 },
                 {
                   title: 'Root-Cause Therapy',
                   description: 'Addressing core issues, not just symptoms',
-                  icon: '🎯'
+                  icon: '/icons/chat.svg'
                 }
               ].map((feature, index) => (
                 <motion.div
@@ -65,7 +85,14 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-primary-50 rounded-xl p-6 text-center"
                 >
-                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <div className="relative w-12 h-12 mx-auto mb-4">
+                    <Image
+                      src={feature.icon}
+                      alt={feature.title}
+                      fill
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
