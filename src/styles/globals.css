@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply text-gray-900 bg-white;
+  :root {
+    --color-primary: 14 165 233;
   }
 }
 
@@ -13,19 +13,11 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
-  }
-  
-  .heading-2 {
-    @apply text-3xl md:text-4xl font-bold;
-  }
-  
   .button-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition duration-150 ease-in-out;
+    @apply bg-primary-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-700 transition duration-300;
   }
-  
-  .button-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary-600 bg-primary-50 hover:bg-primary-100 rounded-lg transition duration-150 ease-in-out;
-  }
+}
+
+body {
+  @apply antialiased text-gray-900;
 }
