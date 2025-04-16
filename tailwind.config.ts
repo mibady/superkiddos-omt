@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -10,24 +10,22 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: 'rgb(var(--color-primary) / 0.05)',
+          100: 'rgb(var(--color-primary) / 0.1)',
+          200: 'rgb(var(--color-primary) / 0.2)',
+          300: 'rgb(var(--color-primary) / 0.3)',
+          400: 'rgb(var(--color-primary) / 0.4)',
+          500: 'rgb(var(--color-primary) / 0.5)',
+          600: 'rgb(var(--color-primary) / 0.6)',
+          700: 'rgb(var(--color-primary) / 0.7)',
+          800: 'rgb(var(--color-primary) / 0.8)',
+          900: 'rgb(var(--color-primary) / 0.9)',
+          950: 'rgb(var(--color-primary) / 0.95)',
         },
-      },
-      container: {
-        center: true,
-        padding: '1rem',
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+
+export default config;
