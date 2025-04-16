@@ -2,36 +2,36 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const benefits = [
+const features = [
   {
-    title: 'Better Breathing',
-    description: 'Develop proper nasal breathing patterns for improved oxygen flow and facial development.',
-    image: '/images/better-breathing.jpg',
-    delay: 0.1,
+    title: 'Certified Therapist',
+    description: 'Expert care from licensed OMT specialists with extensive pediatric experience.',
+    icon: '/icons/therapist.svg',
+    color: 'bg-blue-500',
   },
   {
-    title: 'Improved Sleep',
-    description: 'Experience deeper, more restful sleep leading to better daytime focus and behavior.',
-    image: '/images/better-sleep.jpg',
-    delay: 0.2,
+    title: 'Personalized Plans',
+    description: 'Customized treatment plans tailored to your child's specific needs and goals.',
+    icon: '/icons/clipboard.svg',
+    color: 'bg-orange-500',
   },
   {
-    title: 'Enhanced Speech',
-    description: 'Develop clearer pronunciation and more effective communication skills.',
-    image: '/images/better-speech.jpg',
-    delay: 0.3,
+    title: 'Non-Invasive Care',
+    description: 'Gentle, comfortable techniques that children respond well to.',
+    icon: '/icons/hand.svg',
+    color: 'bg-blue-500',
   },
   {
-    title: 'Proper Development',
-    description: 'Support optimal facial and oral development, reducing the need for future interventions.',
-    image: '/images/proper-development.jpg',
-    delay: 0.4,
+    title: 'Root-Cause Therapy',
+    description: 'Address underlying issues, not just symptoms, for lasting results.',
+    icon: '/icons/network.svg',
+    color: 'bg-orange-500',
   },
 ];
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section className="py-20">
+    <section className="py-20" id="benefits">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,103 +44,106 @@ const BenefitsSection: React.FC = () => {
             Transform Your Child's Life with OMT
           </h2>
           <p className="text-xl text-gray-600">
-            Our expert Oral Facial Myotherapy services provide lasting solutions 
-            for better breathing, sleeping, and overall development.
+            See the difference proper oral development can make in your child's daily life.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {benefits.map((benefit, index) => (
+        {/* Before/After Transformation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-2 gap-8 mb-20"
+        >
+          <div className="relative">
+            <div className="relative h-80 rounded-xl overflow-hidden">
+              <Image
+                src="/images/before-sleep.jpg"
+                alt="Child with sleep breathing issues"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2">
+              <span className="text-gray-900 font-semibold">Before OMT</span>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="relative h-80 rounded-xl overflow-hidden">
+              <Image
+                src="/images/after-sleep.jpg"
+                alt="Child sleeping peacefully after OMT"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2">
+              <span className="text-gray-900 font-semibold">After OMT</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {features.map((feature, index) => (
             <motion.div
-              key={benefit.title}
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: benefit.delay }}
-              className="relative"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex items-start space-x-4"
             >
-              <div className="group">
-                <div className="relative h-64 overflow-hidden rounded-xl">
-                  <Image
-                    src={benefit.image}
-                    alt={benefit.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
-                
-                <div className="relative -mt-24 mx-4">
-                  <div className="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </div>
+              <div className={`${feature.color} rounded-full p-3 flex-shrink-0`}>
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  width={24}
+                  height={24}
+                  className="text-white"
+                />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600">
+                  {feature.description}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Success Story */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 bg-primary-50 rounded-2xl p-8 lg:p-12"
+          transition={{ duration: 0.6 }}
+          className="bg-gray-50 rounded-2xl p-8 lg:p-12"
         >
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="heading-3 mb-4">
-                Our Comprehensive Approach
+                Join Our Success Stories
               </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3 text-gray-600">
-                    Personalized treatment plans tailored to your child's specific needs
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3 text-gray-600">
-                    Regular progress monitoring and adjustments
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3 text-gray-600">
-                    Collaboration with other healthcare providers
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="ml-3 text-gray-600">
-                    Parent education and home exercise support
-                  </span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="text-center lg:text-left">
-              <p className="text-lg text-gray-600 mb-6">
-                Take the first step towards your child's better future. 
-                Schedule a consultation to learn how OMT can help.
+              <p className="text-gray-600 mb-6">
+                Experience the same transformation that hundreds of families 
+                have already achieved with our proven OMT approach.
               </p>
               <button className="button-primary">
                 Start Your Journey Today
               </button>
+            </div>
+            <div className="relative h-64 rounded-xl overflow-hidden">
+              <Image
+                src="/images/success-story.jpg"
+                alt="Happy families at SuperKiddos"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </motion.div>
